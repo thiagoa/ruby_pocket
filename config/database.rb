@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS favorites_tags(
   tag_id INTEGER,
   favorite_id INTEGER,
   FOREIGN KEY(tag_id) REFERENCES tags(id),
-  FOREIGN KEY(favorite_id) REFERENCES favorites(id)
+  FOREIGN KEY(favorite_id) REFERENCES favorites(id),
+  UNIQUE(tag_id, favorite_id) ON CONFLICT REPLACE
 );
 SQL
