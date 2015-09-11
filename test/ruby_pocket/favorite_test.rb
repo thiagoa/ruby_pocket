@@ -33,7 +33,7 @@ module RubyPocket
     def test_tags_with_equal_names_are_not_duplicated
       ruby_flow_values = build_values(
         url: 'http://www.rubyflow.com',
-        tag_names: %w(ruby)
+        tag_names: %w(Ruby)
       )
       ruby_flow = Favorite.create ruby_flow_values
 
@@ -44,16 +44,6 @@ module RubyPocket
       ruby_tapas = Favorite.create ruby_tapas_values
 
       assert_equal ruby_flow.tags, ruby_tapas.tags
-    end
-
-    def test_trims_white_space_from_tags
-      values = build_values(
-        url: 'http://www.rubyflow.com',
-        tag_names: ['    ruby    ']
-      )
-      favorite = Favorite.create values
-
-      assert_equal 'ruby', favorite.tags.first.name
     end
 
     private
