@@ -10,6 +10,7 @@ class DefaultTestCase < MiniTest::Test
   include CustomAssertions
 
   alias :assert_not :refute
+  alias :assert_not_empty :refute_empty
 end
 
 class DatabaseTestCase < DefaultTestCase
