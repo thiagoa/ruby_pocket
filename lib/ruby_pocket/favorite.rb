@@ -16,6 +16,7 @@ module RubyPocket
 
     def validate
       validates_presence :url
+      validates_unique :url
     end
 
     def after_create

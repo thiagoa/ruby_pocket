@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS favorites(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT,
   summary TEXT,
-  url TEXT
+  url TEXT UNIQUE
 );
 
 CREATE TABLE IF NOT EXISTS favorites_tags(

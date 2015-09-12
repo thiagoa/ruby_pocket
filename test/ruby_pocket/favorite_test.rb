@@ -9,6 +9,16 @@ module RubyPocket
       assert_not favorite.new?
     end
 
+    def test_url_is_unique
+      Favorite.create(build_values)
+
+      error = assert_raises Sequel::ValidationFailed do
+        Favorite.create(build_values)
+      end
+
+      assert_match(/url is already taken/, error.message)
+    end
+
     def test_favorite_is_persisted_correctly
       values = build_values
       favorite = Favorite.create values
