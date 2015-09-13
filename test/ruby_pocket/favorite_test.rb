@@ -12,7 +12,7 @@ module RubyPocket
     def test_url_is_unique
       Favorite.create(build_values)
 
-      error = assert_raises Sequel::ValidationFailed do
+      error = assert_raises(Sequel::ValidationFailed) do
         Favorite.create(build_values)
       end
 
@@ -20,29 +20,29 @@ module RubyPocket
     end
 
     def test_name_is_trimmed
-      values = build_values name: '  Ruby is Cool '
-      favorite = Favorite.create values
+      values = build_values(name: '  Ruby is Cool ')
+      favorite = Favorite.create(values)
 
       assert_equal 'Ruby is Cool', favorite.name
     end
 
     def test_favorite_is_persisted_correctly
       values = build_values
-      favorite = Favorite.create values
+      favorite = Favorite.create(values)
 
       assert_subset values, favorite.values
     end
 
     def test_persists_a_favorite_with_tags
-      values = build_values tag_names: %w(ruby cool)
-      favorite = Favorite.create values
+      values = build_values(tag_names: %w(ruby cool))
+      favorite = Favorite.create(values)
 
       assert_not favorite.new?
       assert_equal %w(ruby cool), favorite.tags.map(&:name)
     end
 
     def test_persists_a_favorite_without_tags
-      favorite = Favorite.create build_values
+      favorite = Favorite.create(build_values)
 
       assert_empty favorite.tags
     end
@@ -52,20 +52,20 @@ module RubyPocket
         url: 'http://www.rubyflow.com',
         tag_names: %w(Ruby)
       )
-      ruby_flow = Favorite.create ruby_flow_values
+      ruby_flow = create_favorite(ruby_flow_values)
 
       ruby_tapas_values = build_values(
         url: 'http://www.rubytapas.com',
         tag_names: %w(ruby)
       )
-      ruby_tapas = Favorite.create ruby_tapas_values
+      ruby_tapas = create_favorite(ruby_tapas_values)
 
       assert_equal ruby_flow.tags, ruby_tapas.tags
     end
 
     def test_favorites_with_tags_are_deleted_without_errors
       values = build_values(tag_names: %w(one two))
-      favorite = Favorite.create values
+      favorite = Favorite.create(values)
 
       assert favorite.destroy
     end

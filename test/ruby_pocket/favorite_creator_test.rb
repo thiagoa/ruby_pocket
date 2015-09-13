@@ -12,7 +12,7 @@ module RubyPocket
         creator.favorite = persisted_favorite
       end
 
-      assert_match(/new favorite/, error.message)
+      assert_match %r(new favorite), error.message
     end
 
     def test_when_no_name_present_in_values_fetches_web_page_from_url

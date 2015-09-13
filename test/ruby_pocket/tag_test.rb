@@ -10,23 +10,23 @@ module RubyPocket
         Tag.create name: 'ruby'
       end
 
-      assert_match('name is already taken', error.message)
+      assert_match 'name is already taken', error.message
     end
 
     def test_trims_white_space_from_tag_name
-      tag = Tag.create name: ' Ruby  '
+      tag = Tag.create(name: ' Ruby  ')
 
       assert_equal 'ruby', tag.name
     end
 
     def test_downcases_tag_name
-      tag = Tag.create name: 'Ruby'
+      tag = Tag.create(name: 'Ruby')
 
       assert_equal 'ruby', tag.name
     end
 
     def test_puts_dashes_between_words_on_tag_name
-      tag = Tag.create name: 'Precious Ruby'
+      tag = Tag.create(name: 'Precious Ruby')
 
       assert_equal 'precious-ruby', tag.name
     end
@@ -39,13 +39,13 @@ module RubyPocket
     end
 
     def test_normalizes_dashes_of_the_tag_name
-      tag = Tag.create name: 'Precious__Ruby'
+      tag = Tag.create(name: 'Precious__Ruby')
 
       assert_equal 'precious-ruby', tag.name
     end
 
     def test_normalizes_spaces_between_words_of_tag_name
-      tag = Tag.create name: 'Cool  Precious  Ruby'
+      tag = Tag.create(name: 'Cool  Precious  Ruby')
 
       assert_equal 'cool-precious-ruby', tag.name
     end
