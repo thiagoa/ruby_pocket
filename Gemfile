@@ -9,4 +9,5 @@ group :test do
   gem 'minitest'
   gem 'testrbl'
   gem 'database_cleaner'
+  gem 'webmock'
 end
