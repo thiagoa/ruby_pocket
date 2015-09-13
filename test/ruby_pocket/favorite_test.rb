@@ -63,6 +63,13 @@ module RubyPocket
       assert_equal ruby_flow.tags, ruby_tapas.tags
     end
 
+    def test_favorites_with_tags_are_deleted_without_errors
+      values = build_values(tag_names: %w(one two))
+      favorite = Favorite.create values
+
+      assert favorite.destroy
+    end
+
     private
 
     def build_values(values = {})
