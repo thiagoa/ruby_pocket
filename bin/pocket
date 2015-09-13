@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+require 'pathname'
+require 'ostruct'
+
+$LOAD_PATH << Pathname(__dir__).join('..', 'config')
+$LOAD_PATH << Pathname(__dir__).join('..', 'lib')
+
+require 'optparse'
+require 'ruby_pocket'
+require 'config'
+require 'ruby_pocket/all'
+
+include RubyPocket
+
+options = OpenStruct.new(action: nil)
+
+option_parser = OptionParser.new do |opts|
+  opts.on('-l', '--list', 'List available favorites') do
+    options.action = :list
+  end
+end
+
+option_parser.parse!
+options.validate!
+
+Cli.dispatch options

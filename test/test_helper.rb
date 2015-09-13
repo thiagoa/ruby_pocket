@@ -4,7 +4,7 @@ RubyPocket.environment = 'TEST'
 require_relative '../config/config'
 require_relative 'support/custom_assertions'
 
-DatabaseCleaner.strategy = :transaction
+DatabaseCleaner.strategy = :truncation
 
 class DefaultTestCase < MiniTest::Test
   include CustomAssertions

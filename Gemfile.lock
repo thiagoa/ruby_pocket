@@ -25,6 +25,7 @@ GEM
     ntlm-http (0.1.1)
     sequel (4.26.0)
     sqlite3 (1.3.10)
+    terminal-table (1.5.2)
     testrbl (0.6.0)
     unf (0.1.4)
       unf_ext
@@ -40,6 +41,7 @@ DEPENDENCIES
   minitest
   sequel
   sqlite3
+  terminal-table
   testrbl
 
 BUNDLED WITH
