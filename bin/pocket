@@ -39,7 +39,11 @@ option_parser = OptionParser.new do |opts|
   end
 end
 
-option_parser.parse!
-options.validate!
+begin
+  option_parser.parse!
+  options.validate!
 
-Cli.dispatch options
+  Cli.dispatch options
+rescue ArgumentError => e
+  abort "Error: #{e.message}"
+end

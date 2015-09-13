@@ -19,7 +19,7 @@ module RubyPocket
       def test_shows_message_when_has_no_favorites
         output = run_command('pocket -l')
 
-        assert_match %r(is empty), output
+        assert_match %r(is empty), output.stdout
       end
 
       def test_searches_for_favorites_by_tags
@@ -62,6 +62,13 @@ module RubyPocket
 
         assert_shows_favorite ruby_tapas_favorite, output
         assert_not_shows_favorite ruby_flow_favorite, output
+      end
+
+      def test_shows_an_error_when_tag_not_found
+        output = run_command('pocket -l -t microservices')
+
+        assert_match %r(Tag.+not found), output.stderr
+        assert_empty output.stdout
       end
     end
   end
