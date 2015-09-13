@@ -1,10 +1,15 @@
 require 'ruby_pocket/favorite'
+require 'delegate'
 
 module RubyPocket
   ValidationError = Class.new RubyPocketError
 
   class FavoriteCreator
+    extend Forwardable
+
     attr_accessor :web_page
+
+    delegate :name => :favorite
 
     def initialize(params)
       @params = params

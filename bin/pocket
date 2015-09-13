@@ -26,6 +26,11 @@ option_parser = OptionParser.new do |opts|
   opts.separator "Available actions:"
   opts.separator ""
 
+  opts.on('-a URL', '--add URL', 'Add a favorite by URL') do |url|
+    options.action = :add
+    options.values[:url] = url
+  end
+
   opts.on('-l', '--list', 'List available favorites') do
     options.action = :list
   end
@@ -33,6 +38,10 @@ option_parser = OptionParser.new do |opts|
   opts.separator ""
   opts.separator "Optional available flags:"
   opts.separator ""
+
+  opts.on('-n NAME', '--name NAME', 'Favorite name') do |name|
+    options.values[:name] = name
+  end
 
   opts.on('-t TAGS', '--tag TAGS', Array, 'Comma-separated tags') do |tags|
     options.values[:tag_names] = tags
