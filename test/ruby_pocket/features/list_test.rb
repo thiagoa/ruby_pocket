@@ -4,23 +4,64 @@ require 'ruby_pocket/favorite'
 
 module RubyPocket
   module Cli
-    class ListTest < DatabaseTestCase
+    class ListTest < FeatureTestCase
       include FavoriteFactory
 
       def test_lists_available_favorites_with_id_name_and_tags
         values = build_values(tag_names: %w(ruby))
         favorite = create_favorite(values)
-        tags = Regexp.union(*favorite.tags.map(&:name))
 
-        output = %x(RUBY_POCKET_ENV=TEST bin/pocket -l)
+        output = run_command('pocket -l')
 
-        assert_match %r(#{favorite.id}.+#{favorite.name}.+#{tags}), output
+        assert_shows_favorite favorite, output
       end
 
       def test_shows_message_when_has_no_favorites
-        output = %x(RUBY_POCKET_ENV=TEST bin/pocket -l)
+        output = run_command('pocket -l')
 
         assert_match %r(is empty), output
+      end
+
+      def test_searches_for_favorites_by_tags
+        values = {
+          name: 'Ruby Tapas',
+          url: 'http://www.rubytapas.com',
+          tag_names: %w(ruby)
+        }
+        ruby_tapas_favorite = create_favorite(values)
+
+        values = {
+          name: 'Martin Fowler - Microservices article',
+          url: 'http://martinfowler.com/articles/microservices.html',
+          tag_names: %w(microservices)
+        }
+        microservices_favorite = create_favorite(values)
+
+        output = run_command('pocket -l -t microservices')
+
+        assert_not_shows_favorite ruby_tapas_favorite, output
+        assert_shows_favorite microservices_favorite, output
+      end
+
+      def test_searches_for_favorites_by_more_than_one_tag
+        values = {
+          name: 'Ruby Tapas',
+          url: 'http://www.rubytapas.com',
+          tag_names: %w(ruby screencasts)
+        }
+        ruby_tapas_favorite = create_favorite(values)
+
+        values = {
+          name: 'Ruby Flow',
+          url: 'http://www.rubyflow.com',
+          tag_names: %w(ruby aggregator)
+        }
+        ruby_flow_favorite = create_favorite(values)
+
+        output = run_command('pocket -l -t ruby,screencasts')
+
+        assert_shows_favorite ruby_tapas_favorite, output
+        assert_not_shows_favorite ruby_flow_favorite, output
       end
     end
   end

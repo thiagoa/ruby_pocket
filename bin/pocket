@@ -13,11 +13,15 @@ require 'ruby_pocket/all'
 
 include RubyPocket
 
-options = OpenStruct.new(action: nil)
+options = OpenStruct.new(action: nil, values: {})
 
 option_parser = OptionParser.new do |opts|
   opts.on('-l', '--list', 'List available favorites') do
     options.action = :list
+  end
+
+  opts.on('-t TAGS', '--tag TAGS', Array, 'Comma-separated tags') do |tags|
+    options.values[:tag_names] = tags
   end
 end
 
