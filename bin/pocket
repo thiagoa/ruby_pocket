@@ -16,9 +16,23 @@ include RubyPocket
 options = OpenStruct.new(action: nil, values: {})
 
 option_parser = OptionParser.new do |opts|
+  opts.banner = <<-HEADER
+  Ruby Pocket - A place to store your precious development URLs
+
+  Usage: #{File.basename($PROGRAM_NAME)} [action] [options]
+  HEADER
+
+  opts.separator ""
+  opts.separator "Available actions:"
+  opts.separator ""
+
   opts.on('-l', '--list', 'List available favorites') do
     options.action = :list
   end
+
+  opts.separator ""
+  opts.separator "Optional available flags:"
+  opts.separator ""
 
   opts.on('-t TAGS', '--tag TAGS', Array, 'Comma-separated tags') do |tags|
     options.values[:tag_names] = tags
