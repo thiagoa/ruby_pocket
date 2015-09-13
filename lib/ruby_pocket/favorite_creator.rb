@@ -16,14 +16,7 @@ module RubyPocket
     def save
       fetch_missing_data
       assign_params
-
-      return false if invalid_favorite?
-
       save_favorite
-    end
-
-    def errors
-      favorite.errors
     end
 
     private
@@ -43,10 +36,6 @@ module RubyPocket
 
     def assign_params
       favorite.set_all @params
-    end
-
-    def invalid_favorite?
-      !favorite.valid?
     end
 
     def save_favorite

@@ -45,16 +45,11 @@ module RubyPocket
       favorite = Favorite.new
       creator = build_favorite_creator({}, favorite)
 
-      assert_not creator.save
-      assert favorite.new?
-    end
+      error = assert_raises Sequel::ValidationFailed do
+        assert_not creator.save
+      end
 
-    def test_has_errors_when_values_are_invalid
-      creator = build_favorite_creator({})
-      creator.save
-
-      assert_not_empty creator.errors[:url]
-      assert_match(/not present/, creator.errors[:url].first)
+      assert_equal 'url is not present', error.message
     end
 
     def test_saves_favorite_when_values_are_valid
