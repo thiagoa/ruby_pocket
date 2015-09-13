@@ -45,7 +45,7 @@ module RubyPocket
       favorite = Favorite.new
       creator = build_favorite_creator({}, favorite)
 
-      error = assert_raises Sequel::ValidationFailed do
+      error = assert_raises ValidationError do
         assert_not creator.save
       end
 

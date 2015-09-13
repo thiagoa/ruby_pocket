@@ -1,6 +1,8 @@
 require 'ruby_pocket/favorite'
 
 module RubyPocket
+  ValidationError = Class.new RubyPocketError
+
   class FavoriteCreator
     attr_accessor :web_page
 
@@ -40,6 +42,8 @@ module RubyPocket
 
     def save_favorite
       favorite.save
+    rescue Sequel::ValidationFailed => e
+      raise ValidationError, e.message
     end
 
     def favorite

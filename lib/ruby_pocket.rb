@@ -1,4 +1,6 @@
 module RubyPocket
+  RubyPocketError = Class.new StandardError
+
   class << self
     attr_accessor :environment
 
