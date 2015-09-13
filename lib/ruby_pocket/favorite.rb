@@ -19,6 +19,10 @@ module RubyPocket
       validates_unique :url
     end
 
+    def before_save
+      name.strip! if name
+    end
+
     def after_create
       create_tags
     end

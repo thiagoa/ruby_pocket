@@ -19,6 +19,13 @@ module RubyPocket
       assert_match(/url is already taken/, error.message)
     end
 
+    def test_name_is_trimmed
+      values = build_values name: '  Ruby is Cool '
+      favorite = Favorite.create values
+
+      assert_equal 'Ruby is Cool', favorite.name
+    end
+
     def test_favorite_is_persisted_correctly
       values = build_values
       favorite = Favorite.create values
