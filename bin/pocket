@@ -52,6 +52,6 @@ begin
   options.validate!
 
   Cli.dispatch options
-rescue ArgumentError => e
+rescue ArgumentError, ParseError, RubyPocketError => e
   abort "Error: #{e.message}"
 end
