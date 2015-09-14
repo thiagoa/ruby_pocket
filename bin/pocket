@@ -39,6 +39,11 @@ option_parser = OptionParser.new do |opts|
     options.values[:ids] = ids.map(&:to_i)
   end
 
+  opts.on('-o ID', '--open ID', Integer, 'Open a favorite on the browser') do |id|
+    options.action = :open
+    options.values[:id] = id
+  end
+
   opts.separator ""
   opts.separator "Optional available flags:"
   opts.separator ""
