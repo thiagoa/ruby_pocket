@@ -34,6 +34,11 @@ option_parser = OptionParser.new do |opts|
     options.action = :list
   end
 
+  opts.on('-d ID', '--delete ID', Array, 'Delete a favorite') do |ids|
+    options.action = :delete
+    options.values[:ids] = ids.map(&:to_i)
+  end
+
   opts.separator ""
   opts.separator "Optional available flags:"
   opts.separator ""
