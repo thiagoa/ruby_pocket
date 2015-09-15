@@ -16,7 +16,7 @@ options = Cli::Options.new
 
 option_parser = OptionParser.new do |opts|
   opts.banner = <<-HEADER
-  Ruby Pocket - A place to store your precious development URLs
+  Ruby Pocket - A warm place to store your precious development references
 
   Usage: #{File.basename($PROGRAM_NAME)} [action] [options]
   HEADER
