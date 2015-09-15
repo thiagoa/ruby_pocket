@@ -1,6 +1,7 @@
 require 'bundler'
 
 RubyPocket.environment = ENV['RUBY_POCKET_ENV'] if ENV['RUBY_POCKET_ENV']
+RubyPocket.setup_data_dir
 
 Bundler.require :default, RubyPocket.environment.downcase
 

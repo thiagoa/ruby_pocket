@@ -1,4 +1,10 @@
-DB = Sequel.connect "sqlite://db/pocket_#{RubyPocket.environment.downcase}.db"
+db_path = if RubyPocket.environment == 'PRODUCTION'
+            "#{RubyPocket.data_dir}/pocket_production.db"
+          else
+            "db/pocket_#{RubyPocket.environment.downcase}.db"
+          end
+
+DB = Sequel.connect("sqlite://#{db_path}")
 
 Sequel::Model :validation_helpers
 
