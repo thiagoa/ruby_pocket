@@ -145,8 +145,6 @@ Favorite 'The Art of Command Line' deleted
 
 ## Planned Technical Features
 
-- For the command line CLI, the SQLite Database must live inside the home
-  directory.
 - Database must have proper migrations system (to be implemented with
   **Sequel**), with transparent / automatic updates.
 
