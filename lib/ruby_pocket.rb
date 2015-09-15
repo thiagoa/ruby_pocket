@@ -2,6 +2,8 @@ require 'etc'
 require 'ruby_pocket/environment'
 
 module RubyPocket
+  VERSION = '0.1'
+
   RubyPocketError = Class.new StandardError
 
   class << self
