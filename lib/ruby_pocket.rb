@@ -5,7 +5,7 @@ module RubyPocket
     attr_accessor :environment
 
     def environment
-      @environment || 'DEVELOPMENT'
+      @environment || 'PRODUCTION'
     end
   end
 end
