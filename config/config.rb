@@ -5,7 +5,7 @@ RubyPocket.setup_data_dir
 
 Bundler.require :default, RubyPocket.environment.downcase
 
-if RubyPocket.environment == 'TEST' && ENV['MOCK_FEATURE'] == 'add'
+if RubyPocket.environment.test? && ENV['MOCK_FEATURE'] == 'add'
   require_relative '../test/support/add_feature_mocker'
   AddFeatureMocker.new.run
 end

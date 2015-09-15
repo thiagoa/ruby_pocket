@@ -1,4 +1,5 @@
 require 'etc'
+require 'ruby_pocket/environment'
 
 module RubyPocket
   RubyPocketError = Class.new StandardError
@@ -6,12 +7,17 @@ module RubyPocket
   class << self
     attr_accessor :environment
 
+    def environment=(environment)
+      @environment = Environment.new(environment)
+    end
+
     def environment
-      @environment || 'PRODUCTION'
+      self.environment = 'PRODUCTION' unless @environment
+      @environment
     end
 
     def setup_data_dir
-      return unless environment == 'PRODUCTION'
+      return unless environment.production?
       return if Dir.exist?(data_dir)
 
       Dir.mkdir data_dir
