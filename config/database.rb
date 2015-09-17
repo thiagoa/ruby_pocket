@@ -1,7 +1,7 @@
 db_path = if RubyPocket.environment.production?
             [RubyPocket.data_dir, 'pocket_production.db']
           else
-            ['db', "pocket_#{RubyPocket.environment.downcase}"]
+            ['db', "pocket_#{RubyPocket.environment.downcase}.db"]
           end
 
 DB = Sequel.connect("sqlite://#{File.join(*db_path)}")
