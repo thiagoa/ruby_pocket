@@ -25,6 +25,8 @@ module RubyPocket
     end
 
     def default_scrapper
+      require 'mechanize'
+
       Mechanize.new
     end
   end

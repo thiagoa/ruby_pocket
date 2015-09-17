@@ -1,3 +1,5 @@
+require 'webmock'
+
 class AddFeatureMocker
   include WebMock::API
 
