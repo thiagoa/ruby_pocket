@@ -50,7 +50,7 @@ module RubyPocket
         WebPage.for url
       end
 
-      assert_equal 'Invalid web address', error.message
+      assert_match %r(socket error), error.message
     end
 
     private

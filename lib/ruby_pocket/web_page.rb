@@ -19,7 +19,7 @@ module RubyPocket
     def fetch_page(url, scrapper)
       @page = (scrapper || default_scrapper).get(url)
     rescue SocketError => e
-      raise HttpError, 'Invalid web address'
+      raise HttpError, 'Got a socket error'
     rescue Mechanize::ResponseCodeError => e
       raise HttpError, "#{e.response_code} response code"
     end
