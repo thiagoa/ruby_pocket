@@ -7,26 +7,8 @@ db_path = if RubyPocket.environment.production?
 DB = Sequel.connect("sqlite://#{File.join(*db_path)}")
 
 Sequel::Model :validation_helpers
+Sequel.extension :migration
 
-DB.run <<-SQL
-CREATE TABLE IF NOT EXISTS tags(
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name VARCHAR(255) UNIQUE
-);
-
-CREATE TABLE IF NOT EXISTS favorites(
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT,
-  summary TEXT,
-  url TEXT UNIQUE
-);
-
-CREATE TABLE IF NOT EXISTS favorites_tags(
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  tag_id INTEGER,
-  favorite_id INTEGER,
-  FOREIGN KEY(tag_id) REFERENCES tags(id) ON DELETE CASCADE,
-  FOREIGN KEY(favorite_id) REFERENCES favorites(id) ON DELETE CASCADE,
-  UNIQUE(tag_id, favorite_id) ON CONFLICT REPLACE
-);
-SQL
+unless Sequel::Migrator.is_current?(DB, 'db/migrations')
+  Sequel::Migrator.run(DB, 'db/migrations')
+end

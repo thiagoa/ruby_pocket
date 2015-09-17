@@ -143,11 +143,6 @@ Favorite 'The Art of Command Line' deleted
 - **Sinatra** API to consume the content (as another project, which uses the gem).
 - **Alfred** workflow (as another project).
 
-## Planned Technical Features
-
-- Database must have proper migrations system (to be implemented with
-  **Sequel**), with transparent / automatic updates.
-
 ## Developer information
 
 This project is built with **Ruby**. The name **Ruby**, from **Ruby
