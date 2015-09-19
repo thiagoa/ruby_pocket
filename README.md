@@ -49,13 +49,14 @@ Currently the app has a very simple feature set:
 
 ## How to install
 
-There is no RubyGem yet. Just clone the repo and install the dependencies:
+Install the gem:
 
 ```sh
-bundle install
+gem install ruby_pocket
 ```
 
-The binary is located in `bin/pocket`.
+If you want to do development on this gem, clone the repo and run `bundle
+install`.
 
 ## Usage
 
