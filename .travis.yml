@@ -1,0 +1,4 @@
+language: ruby
+rvm: 2.2.3
+script:
+  - CODECLIMATE_REPO_TOKEN=c4ce07fe6a239fcfc36184c44e66527dc460f91849f03c16a61ff5bd64a49e03 bundle exec rake
