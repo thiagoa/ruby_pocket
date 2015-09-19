@@ -9,6 +9,8 @@ DB = Sequel.connect("sqlite://#{File.join(*db_path)}")
 Sequel::Model :validation_helpers
 Sequel.extension :migration
 
-unless Sequel::Migrator.is_current?(DB, 'db/migrations')
-  Sequel::Migrator.run(DB, 'db/migrations')
+Pathname(__dir__).join('../db/migrations').tap do |migrations_path|
+  unless Sequel::Migrator.is_current?(DB, migrations_path)
+    Sequel::Migrator.run(DB, migrations_path)
+  end
 end
