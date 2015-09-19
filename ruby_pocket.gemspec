@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
   s.test_files = Dir['test/**/*']
+  s.executables = ['pocket']
 
   s.add_runtime_dependency 'sqlite3', '~> 1.3', '>= 1.3.10'
   s.add_runtime_dependency 'sequel', '~> 4.26', '>= 4.26.0'
