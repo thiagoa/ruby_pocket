@@ -1,6 +1,6 @@
 require 'test_helper'
+require 'support/webmock'
 require 'ruby_pocket/web_page'
-require 'webmock/minitest'
 
 module RubyPocket
   class WebPageTest < DefaultTestCase
