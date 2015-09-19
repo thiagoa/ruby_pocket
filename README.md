@@ -1,5 +1,6 @@
 # Ruby Pocket
 
+[![Gem Version](https://badge.fury.io/rb/ruby_pocket.png)](http://badge.fury.io/rb/ruby_pocket)
 [![Code Climate](https://codeclimate.com/github/thiagoa/ruby_pocket/badges/gpa.svg)](https://codeclimate.com/github/thiagoa/ruby_pocket)
 [![Test Coverage](https://codeclimate.com/github/thiagoa/ruby_pocket/badges/coverage.svg)](https://codeclimate.com/github/thiagoa/ruby_pocket/coverage)
 [![Travis CI](https://travis-ci.org/thiagoa/ruby_pocket.svg)](https://travis-ci.org/thiagoa/ruby_pocket)
