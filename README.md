@@ -3,7 +3,6 @@
 [![Code Climate](https://codeclimate.com/github/thiagoa/ruby_pocket/badges/gpa.svg)](https://codeclimate.com/github/thiagoa/ruby_pocket)
 [![Test Coverage](https://codeclimate.com/github/thiagoa/ruby_pocket/badges/coverage.svg)](https://codeclimate.com/github/thiagoa/ruby_pocket/coverage)
 [![Travis CI](https://travis-ci.org/thiagoa/ruby_pocket.svg)](https://travis-ci.org/thiagoa/ruby_pocket)
-[![Test Coverage](https://codeclimate.com/github/thiagoa/ruby_pocket/coverage.png)](https://codeclimate.com/github/thiagoa/ruby_pocket)
 
 *A warm place to store your precious development references.*
 
