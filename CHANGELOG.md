@@ -1,5 +1,10 @@
 # Change log
 
+## [0.1.2] - 2015-09-19
+### Fixed
+- Gemspec, to add pocket executable command
+- README info: new gem info and fix a command example
+
 ## [0.1.1] - 2015-09-19
 ### Added
 - CodeClimate and Travis-CI
