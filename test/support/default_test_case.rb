@@ -1,6 +1,6 @@
 require 'support/custom_assertions'
 
-class DefaultTestCase < MiniTest::Test
+class DefaultTestCase < Minitest::Test
   include CustomAssertions
 
   alias :assert_not :refute
