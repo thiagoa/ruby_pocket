@@ -2,13 +2,17 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.3.8)
+    codeclimate-test-reporter (0.4.8)
+      simplecov (>= 0.7.1, < 1.0.0)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     database_cleaner (1.5.0)
+    docile (1.1.5)
     domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
+    json (1.8.3)
     mechanize (2.7.3)
       domain_name (~> 0.5, >= 0.5.1)
       http-cookie (~> 1.0)
@@ -26,8 +30,14 @@ GEM
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     ntlm-http (0.1.1)
+    rake (10.4.2)
     safe_yaml (1.0.4)
     sequel (4.26.0)
+    simplecov (0.10.0)
+      docile (~> 1.1.0)
+      json (~> 1.8)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     sqlite3 (1.3.10)
     terminal-table (1.5.2)
     testrbl (0.6.0)
@@ -43,9 +53,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  codeclimate-test-reporter
   database_cleaner
   mechanize
   minitest
+  rake
   sequel
   sqlite3
   terminal-table
