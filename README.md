@@ -78,7 +78,7 @@ Favorite 'jlevy/the-art-of-command-line · GitHub' created!
 Add a favorite, but specify its name:
 
 ```sh
-$ pocket -a https://github.com/jlevy/the-art-of-command-line -t 'The Art of Command Line'
+$ pocket -a https://github.com/jlevy/the-art-of-command-line -n 'The Art of Command Line'
 
 Favorite 'The Art of Command Line' created!
 ```
