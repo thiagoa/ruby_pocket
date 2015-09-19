@@ -32,7 +32,7 @@ module RubyPocket
     private
 
     def home_dir
-      Dir.home(Etc.getlogin)
+      Etc.getpwuid.dir
     end
   end
 end
