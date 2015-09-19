@@ -1,5 +1,9 @@
 # Change log
 
+## [0.1.3] - 2015-09-19
+### Fixed
+- Migrations directory on gem was wrong
+
 ## [0.1.2] - 2015-09-19
 ### Fixed
 - Gemspec, to add pocket executable command
