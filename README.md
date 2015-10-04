@@ -117,6 +117,18 @@ $ pocket -l -t command-line
 +----+------------------------------------------------------------------+--------------------+
 ```
 
+Filter favorites by partial tag matching:
+
+```sh
+$ pocket -l -t /line/
+
++----+------------------------------------------------------------------+--------------------+
+| ID | Name                                                             | Tags               |
++----+------------------------------------------------------------------+--------------------+
+| 2  | The Art of Command Line                                          | command-line       |
++----+------------------------------------------------------------------+--------------------+
+```
+
 Open a favorite in your default browser. Use the ID of the favorite:
 
 ```sh
@@ -138,7 +150,6 @@ Favorite 'The Art of Command Line' deleted
 - Edit favorites.
 - List available tags.
 - Interactive command mode.
-- Search favorites with partial tag matching.
 - Search favorites by name or by content, with regex support.
 - Group favorites by tag, and other useful view modes.
 - Link database to another folder, such as **Dropbox**. That action shall be

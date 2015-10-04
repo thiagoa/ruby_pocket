@@ -94,5 +94,82 @@ module RubyPocket
 
       assert_match %r(not found), error.message
     end
+
+    def test_finds_favorites_by_partial_tag_matching
+      rubinius = create_favorite(
+        url: 'http://rubini.us',
+        tag_names: %w(rubinius)
+      )
+      ruby_tapas = create_favorite(
+        url: 'http://www.rubytapas.com',
+        tag_names: %w(ruby screencasts)
+      )
+      create_favorite(
+        url: 'http://railscasts.com',
+        tag_names: %w(screencasts)
+      )
+
+      favorites = FavoriteQuery
+        .new
+        .where(tag_names: %w[/rub/])
+        .all
+
+      assert_equal [rubinius, ruby_tapas], favorites
+    end
+
+    def test_finds_everything_when_using_empty_partial_match_string
+      railscasts = create_favorite(
+        url: 'http://railscasts.com',
+        tag_names: %w(/railscasts/)
+      )
+
+      favorites = FavoriteQuery
+        .new
+        .where(tag_names: %w[//])
+        .all
+
+      assert_equal [railscasts], favorites
+    end
+
+    def test_does_not_fail_when_cant_find_tags_by_partial_matching
+      favorites = FavoriteQuery
+        .new
+        .where(tag_names: %w[/rub/])
+        .all
+
+      assert_empty favorites
+    end
+
+    def test_has_results_when_combining_partial_with_exact_tag_matching
+      create_favorite(
+        url: 'http://existingfavorite.com',
+        tag_names: %w(rubinius)
+      )
+      ruby_tapas = create_favorite(
+        url: 'http://www.rubytapas.com',
+        tag_names: %w(ruby screencasts)
+      )
+
+      favorites = FavoriteQuery
+        .new
+        .where(tag_names: %w[screencasts /rub/])
+        .all
+
+      assert_equal [ruby_tapas], favorites
+    end
+
+    def test_does_not_have_results_when_combining_partial_with_exact_tag_matching
+      create_favorite(
+        url: 'http://existingfavorite.com',
+        tag_names: %w(existing)
+      )
+
+      favorites = FavoriteQuery
+        .new
+        .where(tag_names: %w[existing /rub/])
+        .all
+
+      assert_empty favorites
+    end
   end
 end

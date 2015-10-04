@@ -1,8 +1,10 @@
 require 'ruby_pocket/favorite'
+require 'ruby_pocket/tags_query_helper'
 
 module RubyPocket
   class FavoriteQuery
     extend Forwardable
+    include TagsQueryHelper
 
     def self.where(options)
       new.where(options)
@@ -16,7 +18,7 @@ module RubyPocket
 
     def where(options)
       if options[:tag_names]
-        tags = Tag.find_all(options[:tag_names])
+        tags = find_all_tags(options[:tag_names])
         @scope = where_tags(tags)
       end
 
@@ -27,7 +29,7 @@ module RubyPocket
 
     def where_tags(tags)
       tags.reduce(@scope) do |scope, tag|
-        scope.where(tags: tag)
+        scope.where(tag)
       end
     end
   end

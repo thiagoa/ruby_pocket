@@ -1,5 +1,9 @@
 # Change log
 
+## [UNRELEASED] - 2015-10-04
+### Added
+- Partial tag matching
+
 ## [0.1.3] - 2015-09-19
 ### Fixed
 - Migrations directory on gem was wrong

@@ -2,14 +2,6 @@ module RubyPocket
   class Tag < Sequel::Model
     plugin :validation_helpers
 
-    def self.find_all(names)
-      names.map do |name|
-        find(name: name).tap do |tag|
-          fail ArgumentError, "Tag #{name} not found" unless tag
-        end
-      end
-    end
-
     def name=(name)
       super parameterize_name(name)
     end
