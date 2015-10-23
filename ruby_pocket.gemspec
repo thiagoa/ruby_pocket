@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = RubyPocket::VERSION
   s.authors     = ['Thiago A. Silva']
   s.email       = ['thiagoaraujos@gmail.com']
-  s.summary     = %q{A warm place to store precious development references}
+  s.summary     = %q{A warm place to store your development references}
   s.description = %q{A command line client to store and manage development favorites}
   s.homepage    = 'http://github.com/thiagoa/ruby_pocket'
   s.license     = 'MIT'
