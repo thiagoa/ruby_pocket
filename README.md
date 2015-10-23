@@ -5,7 +5,7 @@
 [![Test Coverage](https://codeclimate.com/github/thiagoa/ruby_pocket/badges/coverage.svg)](https://codeclimate.com/github/thiagoa/ruby_pocket/coverage)
 [![Travis CI](https://travis-ci.org/thiagoa/ruby_pocket.svg)](https://travis-ci.org/thiagoa/ruby_pocket)
 
-*A warm place to store your precious development references.*
+*A warm place to store your development references.*
 
 Although it has *pocket* in its name, **Ruby Pocket** is not a **Pocket** nor a
 **Readability** clone. It is a tool designed to store useful all-around
