@@ -1,8 +1,11 @@
 # Change log
 
-## [UNRELEASED] - 2015-10-04
+## [0.1.4] - 2020-06-10
 ### Added
 - Partial tag matching
+
+### Fixed
+- Bump to Ruby 3.0.1 and latest gem versions
 
 ## [0.1.3] - 2015-09-19
 ### Fixed
