@@ -7,9 +7,9 @@ module RubyPocket
   class FavoriteCreator
     extend Forwardable
 
-    attr_accessor :web_page
+    attr_writer :web_page
 
-    delegate :name => :favorite
+    delegate name: :favorite
 
     def initialize(params)
       @params = params

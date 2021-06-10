@@ -9,8 +9,6 @@ def run_tests(test_files)
   require 'minitest'
 
   test_files.each { |file | require file.expand_path }
-
-  Minitest.run
 end
 
 desc 'Run unit tests'

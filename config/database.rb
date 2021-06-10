@@ -6,7 +6,6 @@ db_path = if RubyPocket.environment.production?
 
 DB = Sequel.connect("sqlite://#{File.join(*db_path)}")
 
-Sequel::Model :validation_helpers
 Sequel.extension :migration
 
 Pathname(__dir__).join('../db/migrations').tap do |migrations_path|

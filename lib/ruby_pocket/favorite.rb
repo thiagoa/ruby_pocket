@@ -3,6 +3,7 @@ require 'ruby_pocket/tag'
 module RubyPocket
   class Favorite < Sequel::Model
     plugin :validation_helpers
+    plugin :whitelist_security
 
     many_to_many :tags
 

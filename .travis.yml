@@ -1,4 +1,6 @@
 language: ruby
-rvm: 2.2.3
+rvm: 3.0.1
 script:
   - bundle exec rake
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
