@@ -17,9 +17,15 @@ module RubyPocket
       private
 
       def open_url(favorite_url)
-        command = OPEN_COMMANDS.fetch(OS.os, 'open')
+        command = OPEN_COMMANDS.fetch(os, 'open')
 
         `#{command} #{favorite_url}`
+      end
+
+      def os
+        OS.os.tap do |os|
+          abort 'Operating System not supported!' unless os
+        end
       end
     end
   end

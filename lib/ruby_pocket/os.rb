@@ -6,11 +6,11 @@ module OS
   end
 
   def self.windows?
-    (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
+    /cygwin|mswin|mingw|bccwin|wince|emx/.match?(RUBY_PLATFORM)
   end
 
   def self.mac?
-    (/darwin|mac os/ =~ RUBY_PLATFORM) != nil
+    /darwin|mac os/.match?(RUBY_PLATFORM)
   end
 
   def self.unix?
